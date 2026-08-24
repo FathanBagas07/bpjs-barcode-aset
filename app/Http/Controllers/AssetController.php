@@ -8,13 +8,24 @@ use Illuminate\Http\Request;
 class AssetController extends Controller
 {
     public function index() {
-        $assets = Asset::all();
+        $assets = Asset::latest()->get();
         return view('assets.index', compact('assets'));
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'nama_barang' => 'required',
+            'kode_barcode' => 'required|unique:assets',
+        ]);
+    
         Asset::create($request->all());
-        return redirect()->back();
+
+        return redirect()->back()->with('success','Aset berhasil ditambahkan');
+    }
+
+    public function destroy(int $id){
+        Asset::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Aset dihapus');
     }
 
     public function scan(string $kode){
