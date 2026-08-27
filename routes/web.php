@@ -13,5 +13,8 @@ Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
 Route::get('/scan', function() {
     return view('scan');
 });
-
 Route::get('/scan/{kode}', [AssetController::class, 'scan']);
+Route::get('/assets/{id', function($id) {
+    $asset = \App\Models\Asset::findOrFail($id);
+    return view('assets.show', compact('asset'));
+});
