@@ -44,7 +44,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Barcode</th>
+                        <th>QR Code</th>
                         <th>Lokasi</th>
                         <th>Kondisi</th>
                         <th>Aksi</th>
@@ -55,7 +55,9 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $asset->nama_barang }}</td>
-                        <td>{{ $asset->kode_barcode }}</td>
+                        <td>
+                            {!! QrCode::size(100)->generate($asset->kode_barcode) !!}
+                        </td>
                         <td>{{ $asset->lokasi }}</td>
                         <td>{{ $asset->kondisi }}</td>
                         <td>
