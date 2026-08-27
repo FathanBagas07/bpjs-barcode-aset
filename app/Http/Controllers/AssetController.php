@@ -33,4 +33,18 @@ class AssetController extends Controller
 
         return response()->json($asset ?? ['message' => 'Not found']);
     }
+
+    $asset = Asset::where('kode_barcode', $kode)->first();
+
+    if ($asset) {
+        return reponse()->json([
+            'status' => 'error',
+            'message' => 'Aset tidak ditemukan'
+        ]);
+    }
+
+    return response()->json([
+        'status' => 'success',
+        'data' => $asset
+    ]);
 }

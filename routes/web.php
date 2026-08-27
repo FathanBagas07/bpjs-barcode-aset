@@ -10,3 +10,8 @@ Route::get('/scan-page', function() {
     return view('scan');
 });
 Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
+Route::get('/scan', function() {
+    return view('scan');
+});
+
+Route::get('/scan/{kode}', [AssetController::class, 'scan']);
