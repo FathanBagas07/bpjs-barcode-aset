@@ -6,7 +6,7 @@
         <p>Kode: {{ $asset->kode_barcode }}</p>
 
         <div>
-            {!! QrCode::size(200)->generate($asset->kode_barcode) !!}
+            {!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(200)->generate($asset->kode_barcode) !!}
         </div>
     </body>
 </html>

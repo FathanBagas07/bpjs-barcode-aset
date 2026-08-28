@@ -56,7 +56,7 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $asset->nama_barang }}</td>
                         <td>
-                            {!! QrCode::size(100)->generate($asset->kode_barcode) !!}
+                            {!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(100)->generate($asset->kode_barcode) !!}
                         </td>
                         <td>{{ $asset->lokasi }}</td>
                         <td>{{ $asset->kondisi }}</td>
