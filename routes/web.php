@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\AssetLogController;
 
 Route::get('/', [AssetController::class, 'index']);
 Route::post('/assets', [AssetController::class, 'store']);
@@ -18,3 +19,4 @@ Route::get('/assets/{id', function($id) {
     $asset = \App\Models\Asset::findOrFail($id);
     return view('assets.show', compact('asset'));
 });
+Route::get('/logs', [AssetLogController::class, 'index']);
