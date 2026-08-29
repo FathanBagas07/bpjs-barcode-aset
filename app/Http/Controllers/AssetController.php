@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\AssetLog;
 use Illuminate\Http\Request;
 
 class AssetController extends Controller
@@ -31,6 +32,26 @@ class AssetController extends Controller
     public function scan(string $kode){
         $asset = Asset::where('kode_barcode', $kode)->first();
 
-        return response()->json($asset ?? ['message' => 'Not found']);
+        // Simpan Log Scan
+        AssetLog::create([
+            'asset_id' => $asset?->id,
+            'kode_barcode' => $kode,
+            'aksi' => 'scan',
+            'waktu' => now(),
+        ]);
+
+        // Jika tidak ditemukan
+        if (!$asset) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Aset tidak ditemukan'
+            ]);
+        }
+
+        // Jika ditemukan
+        return response()->json([
+            'status' => 'success',
+            'data' => $asset
+        ]);
     }
 }
