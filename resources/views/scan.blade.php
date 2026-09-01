@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>📷 Scan Barcode Aset</h2>
+    <h2>Scan QR Aset</h2>
 
     <div id="reader" style="width: 300px;"></div>
 
@@ -12,37 +12,10 @@
         Menunggu scan...
     </div>
 
-    <script src="https://unpkg.com/html5-qrcode"></script>
-
     <script>
-        function onScanSuccess(decodedText) {
-
-            fetch('/scan/' + decodedText)
-                .then(res => res.json())
-                .then(res => {
-
-                    if (res.status === 'error') {
-                        document.getElementById('result').innerHTML =
-                            `<span class="text-danger">${res.message}</span>`;
-                        return;
-                    }
-
-                    let data = res.data;
-
-                    document.getElementById('result').innerHTML = `
-                <b>Nama:</b> ${data.nama_barang} <br>
-                <b>Barcode:</b> ${data.kode_barcode} <br>
-                <b>Lokasi:</b> ${data.lokasi ?? '-'} <br>
-                <b>Kondisi:</b> ${data.kondisi ?? '-'}
-            `;
-                });
-        }
-
-        let scanner = new Html5QrcodeScanner("reader", {
-            fps: 10,
-            qrbox: 250
-        });
-
-        scanner.render(onScanSuccess);
+        window.scanUrl = '{{ url('/scan') }}';
     </script>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+<script src="{{ asset('js/scan.js') }}"></script>
 @endsection
