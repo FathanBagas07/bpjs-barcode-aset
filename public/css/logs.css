@@ -1,0 +1,48 @@
+/* =========================
+   LOG PAGE STYLE
+========================= */
+
+/* TABLE WRAPPER */
+.log-card {
+    background: var(--bpjs-surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    padding: 15px;
+}
+
+/* TABLE STYLE */
+.table {
+    margin-bottom: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* HEADER */
+.table thead {
+    background: var(--bpjs-blue);
+    color: white;
+}
+
+/* ROW HOVER */
+.table tbody tr {
+    transition: 0.2s;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 104, 157, 0.06);
+}
+
+/* CELL SPACING */
+.table td, .table th {
+    vertical-align: middle;
+    padding: 12px;
+}
+
+/* BADGE STYLE (opsional untuk aksi) */
+.badge-scan {
+    background: var(--bpjs-green);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}

@@ -1,26 +1,54 @@
 @extends('layouts.app')
 
-@section('content')
-    <h2>Riwayat Scan Aset</h2>
+<link rel="stylesheet" href="{{ asset('css/logs.css') }}">
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Kode Barcode</th>
-                <th>Aksi</th>
-                <th>Waktu</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($logs as $index => $log)
+@section('content')
+
+<h2>Riwayat Scan Aset</h2>
+
+<div class="log-card">
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered align-middle">
+            <thead>
                 <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ $log->kode_barcode }}</td>
-                    <td>{{ $log->aksi }}</td>
-                    <td>{{ $log->waktu }}</td>
+                    <th style="width: 60px;">No</th>
+                    <th>Kode Barcode</th>
+                    <th>Aksi</th>
+                    <th>Waktu</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+                @forelse($logs as $index => $log)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>
+                            <code>{{ $log->kode_barcode }}</code>
+                        </td>
+                        <td>
+                            <span class="badge-scan">
+                                {{ $log->aksi }}
+                            </span>
+                        </td>
+                        <td>
+                            {{ $log->waktu }}
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">
+                            Belum ada data scan
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
 @endsection

@@ -1,21 +1,36 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/scan.css') }}">
+
 @section('content')
+
     <h2>Scan QR Aset</h2>
 
-    <div id="reader" style="width: 300px;"></div>
+    <div class="scan-wrapper">
 
-    <hr>
+        <div class="scan-card">
 
-    <h4>Hasil Scan:</h4>
-    <div id="result" class="alert alert-secondary">
-        Menunggu scan...
+            <div id="reader"></div>
+
+            <hr>
+
+            <h5>Hasil Scan</h5>
+
+            <div id="result" class="scan-result">
+                <div class="result-placeholder">
+                    📷 Arahkan kamera ke QR Code
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <script>
-        window.scanUrl = '{{ url('/scan') }}';
+        window.scanUrl = "{{ url('/scan') }}";
     </script>
 
     <script src="https://unpkg.com/html5-qrcode"></script>
-<script src="{{ asset('js/scan.js') }}"></script>
+    <script src="{{ asset('js/scan.js') }}"></script>
+
 @endsection

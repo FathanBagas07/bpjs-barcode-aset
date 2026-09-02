@@ -1,16 +1,119 @@
+/* =========================
+   🎨 ROOT / DESIGN SYSTEM
+========================= */
+:root {
+    /* Brand Colors */
+    --bpjs-green: #009b4c;
+    --bpjs-green-hover: #00803e;
+    --bpjs-light-green: #a8cf45;
+    --bpjs-blue: #00689d;
+
+    /* Neutrals */
+    --bpjs-bg: #f8f9fa;
+    --bpjs-surface: #ffffff;
+    --bpjs-text-primary: #212529;
+    --bpjs-text-secondary: #6c757d;
+    --bpjs-border: #dee2e6;
+
+    /* Status */
+    --bpjs-success: #28a745;
+    --bpjs-warning: #ffc107;
+    --bpjs-danger: #dc3545;
+
+    /* Typography */
+    --font-family-base: 'Inter', 'Roboto', 'Open Sans', system-ui, sans-serif;
+}
+
+/* =========================
+   🌐 GLOBAL
+========================= */
 body {
-    border-radius: 12px
+    background-color: var(--bpjs-bg);
+    color: var(--bpjs-text-primary);
+    font-family: var(--font-family-base);
+    margin: 0;
+    padding-top: 60px;
 }
 
+/* =========================
+   🧭 NAVBAR
+========================= */
+.custom-navbar {
+    background-color: var(--bpjs-surface) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 10px 20px;
+}
+
+/* Logo */
+.navbar-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Navigation Links */
+.navbar-nav {
+    gap: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--bpjs-text-primary) !important;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--bpjs-blue) !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--bpjs-blue) !important;
+    border-bottom: 2px solid var(--bpjs-blue);
+}
+
+/* =========================
+   📦 CARD
+========================= */
 .card {
+    border: none;
     border-radius: 12px;
-    box-shadow:0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.navbar {
-    background: linear-gradient(90deg, #0056b3, #007bff);
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-4px);
 }
 
-.h2 {
-    font-weight: 600;
+/* Card Variants */
+.card-aset {
+    background: linear-gradient(135deg, var(--bpjs-blue), #0a84c6);
+    color: white;
+}
+
+.card-scan {
+    background: linear-gradient(135deg, var(--bpjs-green), var(--bpjs-green-hover));
+    color: white;
+}
+
+.card-today {
+    background: linear-gradient(135deg, var(--bpjs-light-green), var(--bpjs-green));
+    color: white;
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        height: 30px;
+    }
 }

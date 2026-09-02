@@ -6,23 +6,23 @@
 
     <h2>Dashboard</h2>
 
-    <div class="row">
+    <div class="row g-3">
         <div class="col-md-4">
-            <div class="card p-3">
+            <div class="card card-aset p-3 text-white">
                 <h5>Total Aset</h5>
                 <h2>{{ $totalAset }}</h2>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card p-3">
+            <div class="card card-scan p-3 text-white">
                 <h5>Total Scan</h5>
                 <h2>{{ $totalScan }}</h2>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card p-3">
+            <div class="card card-today p-3 text-white">
                 <h5>Scan Hari Ini</h5>
                 <h2>{{ $scanHariIni }}</h2>
             </div>

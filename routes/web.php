@@ -5,19 +5,37 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\AssetLogController;
 
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+*/
 Route::get('/', [DashboardController::class, 'index']);
-Route::post('/assets', [AssetController::class, 'store']);
-Route::get('/scan/{kode}', [AssetController::class, 'scan']);
-Route::get('/scan-page', function() {
-    return view('scan');
-});
-Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
-Route::get('/scan', function() {
-    return view('scan');
-});
-Route::get('/assets/{id}', function($id) {
-    $asset = \App\Models\Asset::findOrFail($id);
-    return view('assets.show', compact('asset'));
-});
-Route::get('/logs', [AssetLogController::class, 'index']);
+
+/*
+|--------------------------------------------------------------------------
+| Assets (CRUD)
+|--------------------------------------------------------------------------
+*/
 Route::get('/assets', [AssetController::class, 'index']);
+Route::post('/assets', [AssetController::class, 'store']);
+Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
+Route::get('/assets/{id}', [AssetController::class, 'show']);
+
+/*
+|--------------------------------------------------------------------------
+| Scan System
+|--------------------------------------------------------------------------
+*/
+Route::get('/scan', function () {
+    return view('scan');
+});
+
+Route::get('/scan/{kode}', [AssetController::class, 'scan']);
+
+/*
+|--------------------------------------------------------------------------
+| Logs
+|--------------------------------------------------------------------------
+*/
+Route::get('/logs', [AssetLogController::class, 'index']);
