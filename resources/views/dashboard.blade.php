@@ -1,48 +1,17 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <h2>Dashboard</h2>
-
-    <div class="row g-3">
-        <div class="col-md-4">
-            <div class="card card-aset p-3 text-white">
-                <h5>Total Aset</h5>
-                <h2>{{ $totalAset }}</h2>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card card-scan p-3 text-white">
-                <h5>Total Scan</h5>
-                <h2>{{ $totalScan }}</h2>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card card-today p-3 text-white">
-                <h5>Scan Hari Ini</h5>
-                <h2>{{ $scanHariIni }}</h2>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    {{ __("You're logged in!") }}
+                </div>
             </div>
         </div>
     </div>
-
-    <br>
-
-    <canvas id="scanChart"></canvas>
-    <canvas id="barChart"></canvas>
-
-    <script>
-        window.scanLabels = @json($scanPerHari->pluck('tanggal'));
-        window.scanData = @json($scanPerHari->pluck('total'));
-
-        window.totalAset = {{ $totalAset }};
-        window.totalScan = {{ $totalScan }};
-        window.scanHariIni = {{ $scanHariIni }};
-    </script>
-
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-
-@endsection
+</x-app-layout>

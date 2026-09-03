@@ -1,41 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AssetController;
-use App\Http\Controllers\AssetLogController;
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard
-|--------------------------------------------------------------------------
-*/
-Route::get('/', [DashboardController::class, 'index']);
-
-/*
-|--------------------------------------------------------------------------
-| Assets (CRUD)
-|--------------------------------------------------------------------------
-*/
-Route::get('/assets', [AssetController::class, 'index']);
-Route::post('/assets', [AssetController::class, 'store']);
-Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
-Route::get('/assets/{id}', [AssetController::class, 'show']);
-
-/*
-|--------------------------------------------------------------------------
-| Scan System
-|--------------------------------------------------------------------------
-*/
-Route::get('/scan', function () {
-    return view('scan');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/scan/{kode}', [AssetController::class, 'scan']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-/*
-|--------------------------------------------------------------------------
-| Logs
-|--------------------------------------------------------------------------
-*/
-Route::get('/logs', [AssetLogController::class, 'index']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
