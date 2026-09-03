@@ -32,88 +32,33 @@ body {
     color: var(--bpjs-text-primary);
     font-family: var(--font-family-base);
     margin: 0;
-    padding-top: 60px;
 }
 
 /* =========================
-   🧭 NAVBAR
+   LOGO NAVBAR
 ========================= */
-.custom-navbar {
-    background-color: var(--bpjs-surface) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    padding: 10px 20px;
-}
-
-/* Logo */
-.navbar-logo {
-    height: 42px;
+.navbar-brand img {
+    height: 42px;          /* ukuran default desktop */
     width: auto;
     object-fit: contain;
+    transition: 0.2s ease;
 }
 
-/* Navigation Links */
-.navbar-nav {
-    gap: 10px;
+/* Hover effect (opsional biar lebih hidup) */
+.navbar-brand img:hover {
+    transform: scale(1.05);
 }
 
-.navbar-nav .nav-link {
-    color: var(--bpjs-text-primary) !important;
-    font-weight: 500;
-    padding: 8px 15px;
-    transition: all 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover {
-    color: var(--bpjs-blue) !important;
-}
-
-.navbar-nav .nav-link.active {
-    color: var(--bpjs-blue) !important;
-    border-bottom: 2px solid var(--bpjs-blue);
-}
-
-/* =========================
-   📦 CARD
-========================= */
-.card {
-    border: none;
-    border-radius: 12px;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Hover Effect */
-.card:hover {
-    transform: translateY(-4px);
-}
-
-/* Card Variants */
-.card-aset {
-    background: linear-gradient(135deg, var(--bpjs-blue), #0a84c6);
-    color: white;
-}
-
-.card-scan {
-    background: linear-gradient(135deg, var(--bpjs-green), var(--bpjs-green-hover));
-    color: white;
-}
-
-.card-today {
-    background: linear-gradient(135deg, var(--bpjs-light-green), var(--bpjs-green));
-    color: white;
-}
-
-/* =========================
-   📱 RESPONSIVE
-========================= */
+/* Tablet */
 @media (max-width: 768px) {
-    .navbar-logo {
+    .navbar-brand img {
         height: 36px;
     }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
-    .navbar-logo {
+    .navbar-brand img {
         height: 30px;
     }
 }

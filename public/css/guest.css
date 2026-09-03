@@ -1,0 +1,28 @@
+/* =========================
+   LOGO NAVBAR
+========================= */
+.navbar-brand img {
+    height: 72px;          /* ukuran default desktop */
+    width: auto;
+    object-fit: contain;
+    transition: 0.2s ease;
+}
+
+/* Hover effect (opsional biar lebih hidup) */
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 66px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .navbar-brand img {
+        height: 50px;
+    }
+}

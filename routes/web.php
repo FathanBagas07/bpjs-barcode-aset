@@ -57,3 +57,5 @@ Route::middleware(['auth'])->group(function () {
     */
     Route::get('/logs', [AssetLogController::class, 'index']);
 });
+
+require __DIR__.'/auth.php';
