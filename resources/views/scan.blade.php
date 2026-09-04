@@ -8,24 +8,24 @@
         </h2>
     </x-slot>
 
-    <div class="scan-wrapper">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="card asset-form-card mb-4">
+            <div class="card-body">
 
-        <div class="scan-card">
+                <div id="reader"></div>
 
-            <div id="reader"></div>
+                <hr>
 
-            <hr>
+                <h5 class="pt-3">Hasil Scan</h5>
 
-            <h5>Hasil Scan</h5>
-
-            <div id="result" class="scan-result">
-                <div class="result-placeholder">
-                    📷 Arahkan kamera ke QR Code
+                <div id="result" class="scan-result">
+                    <div class="result-placeholder">
+                        📷 Arahkan kamera ke QR Code
+                    </div>
                 </div>
+
             </div>
-
         </div>
-
     </div>
 
 </x-app-layout>
