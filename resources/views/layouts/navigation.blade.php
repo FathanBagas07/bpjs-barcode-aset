@@ -11,18 +11,34 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Dashboard Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
+                {{-- Aset link --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('assets')" :active="request()->routeIs('assets')">
+                        {{ __('Aset') }}
+                    </x-nav-link>
+                </div>
+
+                {{-- Scan link --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('scan')" :active="request()->routeIs('scan')">
                         {{ __('Scan') }}
                     </x-nav-link>
                 </div>
+
+                {{-- Log link --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('log')" :active="request()->routeIs('log')">
+                        {{ __('Log') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -80,9 +96,31 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        {{-- Dashboard --}}
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+
+        {{-- Aset --}}
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('assets')" :active="request()->routeIs('assets')">
+                {{ __('Aset') }}
+            </x-responsive-nav-link>
+        </div>
+
+        {{-- Scan --}}
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('scan')" :active="request()->routeIs('scan')">
+                {{ __('Scan') }}
+            </x-responsive-nav-link>
+        </div>
+
+        {{-- Log --}}
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('log')" :active="request()->routeIs('log')">
+                {{ __('Log') }}
             </x-responsive-nav-link>
         </div>
 

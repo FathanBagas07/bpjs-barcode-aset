@@ -41,7 +41,8 @@ Route::middleware(['auth'])->group(function () {
     /*
     | Assets
     */
-    Route::get('/assets', [AssetController::class, 'index']);
+    Route::get('/assets', [AssetController::class, 'index'])
+    ->name('assets');
     Route::post('/assets', [AssetController::class, 'store']);
     Route::delete('/assets/{id}', [AssetController::class, 'destroy']);
 
@@ -55,7 +56,8 @@ Route::middleware(['auth'])->group(function () {
     /*
     | Logs
     */
-    Route::get('/logs', [AssetLogController::class, 'index']);
+    Route::get('/logs', [AssetLogController::class, 'index'])
+    ->name('log');
 });
 
 require __DIR__.'/auth.php';
