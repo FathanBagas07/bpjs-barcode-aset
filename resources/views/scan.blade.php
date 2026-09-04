@@ -14,8 +14,6 @@
 
                 <div id="reader"></div>
 
-                <hr>
-
                 <h5 class="pt-3">Hasil Scan</h5>
 
                 <div id="result" class="scan-result">
