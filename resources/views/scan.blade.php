@@ -1,4 +1,4 @@
-<link rel="stylesheet" rel="{{ asset('css/scan.css') }}">
+<link rel="stylesheet" href="{{ asset('css/scan.css') }}">
 
 <x-app-layout>
 
@@ -27,9 +27,9 @@
         </div>
 
     </div>
+
 </x-app-layout>
 
-{{-- DATA JS --}}
 <script>
     window.scanUrl = "{{ url('/scan') }}";
 </script>
