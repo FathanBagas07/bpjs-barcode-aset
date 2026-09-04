@@ -24,8 +24,31 @@
     }
 
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-3px);
     }
+}
+
+#reader button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(--bpjs-green);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#reader button:hover {
+    background-color: #007a3d;
+}
+
+#reader button:focus-visible {
+    outline: 3px solid rgba(0, 155, 76, 0.3);
+    outline-offset: 2px;
 }
 
 /* =========================
