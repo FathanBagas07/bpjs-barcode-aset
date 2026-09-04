@@ -1,78 +1,67 @@
-#reader {
-    background-color: #ffffff !important;
-    border: 1px solid #dee2e6 !important; /* Border tipis abu-abu standar card */
-    border-radius: 12px !important;       /* Sudut membulat modern */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important; /* Efek elevasi card halus */
-    padding: 24px !important;
-    overflow: hidden !important;
-    max-width: 500px;                      /* Batas lebar agar pas di layar */
-    margin: 0 auto;                        /* Posisikan di tengah layar */
+/* =========================
+   WRAPPER
+========================= */
+.scan-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-#reader button {
-    background-color: var(--bpjs-green, #009B4C) !important;
-    color: #ffffff !important;
-    border: none !important;
-    padding: 6px 12px !important;
-    border-radius: 4px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: background-color 0.2s ease !important;
-}
-
-#reader button:hover {
-    background-color: var(--bpjs-green-hover, #00803E) !important;
-}
-
-#reader button {
-    background-color: var(--bpjs-green, #009B4C) !important;
-    color: #ffffff !important;
-    border: none !important;
-    padding: 10px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    cursor: pointer !important;
-    transition: background-color 0.2s ease, transform 0.1s ease !important;
-    margin-top: 12px !important;
-}
-
-#reader button:hover {
-    background-color: var(--bpjs-green-hover, #00803E) !important;
-}
-
-#reader button:active {
-    transform: scale(0.98);
-}
-
-#reader__dashboard_section_swaplink {
-    color: var(--bpjs-blue, #00689D) !important;
-    text-decoration: none !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    display: inline-block !important;
-    margin-top: 10px !important;
-}
-
-#reader__dashboard_section_swaplink:hover {
-    text-decoration: underline !important;
-}
-
-/* RESULT CARD */
-.scan-result {
-    margin-top: 15px;
-    border-radius: 12px;
-    padding: 15px;
-    border: 1px solid var(--bpjs-border);
+/* =========================
+   CARD UTAMA
+========================= */
+.scan-card {
+    width: 100%;
+    max-width: 520px;
     background: var(--bpjs-surface);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--bpjs-border);
     transition: 0.3s;
 }
 
-/* PLACEHOLDER */
+/* Hover halus */
+.scan-card:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SCANNER BOX
+========================= */
+#reader {
+    width: 100% !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* =========================
+   TITLE
+========================= */
+.scan-card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--bpjs-text-primary);
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+.scan-result {
+    margin-top: 12px;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--bpjs-border);
+    background: var(--bpjs-bg);
+    transition: 0.3s;
+}
+
+/* Placeholder */
 .result-placeholder {
     text-align: center;
     color: var(--bpjs-text-secondary);
+    font-size: 14px;
 }
 
 /* SUCCESS */
@@ -89,15 +78,25 @@
 
 /* DETAIL ITEM */
 .result-item {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .result-label {
-    font-weight: 600;
-    color: var(--bpjs-text-secondary);
     font-size: 13px;
+    color: var(--bpjs-text-secondary);
+    font-weight: 600;
 }
 
 .result-value {
     font-size: 15px;
+    font-weight: 500;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 480px) {
+    .scan-card {
+        padding: 18px;
+    }
 }

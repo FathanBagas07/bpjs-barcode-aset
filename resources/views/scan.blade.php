@@ -1,10 +1,12 @@
-@extends('layouts.app')
+<link rel="stylesheet" rel="{{ asset('css/scan.css') }}">
 
-<link rel="stylesheet" href="{{ asset('css/scan.css') }}">
+<x-app-layout>
 
-@section('content')
-
-    <h2>Scan QR Aset</h2>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Scan
+        </h2>
+    </x-slot>
 
     <div class="scan-wrapper">
 
@@ -25,12 +27,12 @@
         </div>
 
     </div>
+</x-app-layout>
 
-    <script>
-        window.scanUrl = "{{ url('/scan') }}";
-    </script>
+{{-- DATA JS --}}
+<script>
+    window.scanUrl = "{{ url('/scan') }}";
+</script>
 
-    <script src="https://unpkg.com/html5-qrcode"></script>
-    <script src="{{ asset('js/scan.js') }}"></script>
-
-@endsection
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="{{ asset('js/scan.js') }}"></script>
