@@ -11,6 +11,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @stack('styles')
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -47,6 +48,9 @@
             @endisset
         </main>
     </div>
+
+    {{-- Scripts --}}
+    @stack('scripts')
 </body>
 
 </html>
