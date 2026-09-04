@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
     */
     Route::get('/scan', function () {
         return view('scan');
-    });
+    })->name('scan');
 
     /*
     | Logs

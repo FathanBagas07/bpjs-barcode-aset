@@ -21,6 +21,7 @@ if (lineCtx) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true
@@ -52,7 +53,8 @@ if (barCtx) {
             }]
         },
         options: {
-            reponsive: true
+            responsive: true,
+            maintainAspectRatio: false
         }
     })
 }

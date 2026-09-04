@@ -34,6 +34,46 @@ body {
     margin: 0;
 }
 
+/* Dashboard statistic cards */
+.dashboard-stat-card {
+    min-height: 132px;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-stat-card h5,
+.dashboard-stat-card h2 {
+    margin: 0;
+}
+
+.dashboard-stat-card h2 {
+    margin-top: 12px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card-aset {
+    background: var(--bpjs-green);
+}
+
+.card-scan {
+    background: var(--bpjs-blue);
+}
+
+.card-today {
+    background: var(--bpjs-light-green);
+    color: var(--bpjs-text-primary) !important;
+}
+
+.dashboard-chart-card {
+    width: 100%;
+    border: 1px solid var(--bpjs-border);
+    border-radius: 12px;
+    background: var(--bpjs-surface);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
 /* =========================
    LOGO NAVBAR
 ========================= */
