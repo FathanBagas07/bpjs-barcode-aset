@@ -95,15 +95,50 @@ function playBeep() {
 }
 
 /* =========================
-   CUSTOMIZE BUTTON TEXT
+   TRANSLATE SCANNER UI
 ========================= */
-function customizeScannerUI() {
-    setTimeout(() => {
-        const permissionBtn = document.querySelector("#reader button");
-        if (permissionBtn) {
-            permissionBtn.innerText = "Izinkan Akses Kamera";
+function translateScannerUI() {
+    const reader = document.getElementById("reader");
+    if (!reader) return;
+
+    const translations = {
+        "Scan an Image File": "Pilih File Gambar",
+        "Request Camera Permissions": "Izinkan Akses Kamera",
+        "Permission denied": "Izin akses kamera ditolak. Silakan izinkan akses kamera di pengaturan browser, lalu muat ulang halaman.",
+        "NotFoundError: Requested device not found" : "Perangkat yang diminta tidak ditemukan",
+        "Choose Image - No image choosen" : "Pilih Gambar - Tidak ada gambar yang dipilih",
+        "Or drop an image to scan" : "Atau jatuhkan gambar untuk dipindai",
+        "Scan using camera directly" : "Pindai langsung lewat kamera"
+    };
+
+    const walker = document.createTreeWalker(reader, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    let node;
+
+    while (node = walker.nextNode()) {
+        textNodes.push(node);
+    }
+
+    textNodes.forEach(textNode => {
+        let text = textNode.nodeValue;
+
+        Object.entries(translations).forEach(([english, indonesian]) => {
+            text = text.replaceAll(english, indonesian);
+        });
+
+        if (text !== textNode.nodeValue) {
+            textNode.nodeValue = text;
         }
-    }, 500);
+    });
+}
+
+function customizeScannerUI() {
+    const reader = document.getElementById("reader");
+    if (!reader) return;
+
+    const observer = new MutationObserver(translateScannerUI);
+    observer.observe(reader, { childList: true, subtree: true });
+    translateScannerUI();
 }
 
 /* =========================
