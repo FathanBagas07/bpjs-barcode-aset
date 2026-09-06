@@ -12,7 +12,7 @@ class AssetSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Asset:create([
+        \App\Models\Asset::create([
             'nama_barang' => 'Laptop Asus TUF',
             'kode_barcode' => 'AST001',
             'lokasi' => 'Ruang IT',
