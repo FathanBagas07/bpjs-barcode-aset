@@ -51,8 +51,10 @@
                         <input type="text" name="kondisi" class="form-control" placeholder="Kondisi">
                     </div>
 
-                    <div class="mb-2">
-                        <input type="file" name="foto" class="form-control">
+                    <div class="mb-2 border-1 rounded-3">
+                        <label for="foto" class="file-picker-label">Pilih foto aset</label>
+                        <input id="foto" type="file" name="foto" class="file-picker-input" accept=".jpg,.jpeg,.png" onchange="document.getElementById('nama-foto').textContent = this.files[0]?.name || 'Belum ada foto dipilih'">
+                        <span id="nama-foto" class="file-picker-name">Belum ada foto dipilih</span>
                     </div>
 
                     <button class="btn btn-primary">Tambah Aset</button>

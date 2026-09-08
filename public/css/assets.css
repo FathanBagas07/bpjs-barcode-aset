@@ -22,6 +22,33 @@
     box-shadow: 0 0 0 0.2rem rgba(0, 104, 157, 0.15);
 }
 
+.file-picker-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.file-picker-label {
+    display: inline-block;
+    padding: 10px 14px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.file-picker-label:hover {
+    background-color: gray;
+    color: white;
+}
+
+.file-picker-name {
+    margin-left: 8px;
+    color: #666;
+}
+
 /* Button */
 .btn-primary {
     background-color: var(--bpjs-blue);
