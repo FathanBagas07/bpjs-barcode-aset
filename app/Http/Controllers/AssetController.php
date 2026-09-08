@@ -14,10 +14,23 @@ class AssetController extends Controller
     }
 
     public function store(Request $request) {
+        
         $request->validate([
             'nama_barang' => 'required',
             'kode_barcode' => 'required|unique:assets',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
+
+        $data = $request->all();
+
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+
+            $file->storeAs('public/assets', $filename);
+
+            $data['foto'] = $filename;
+        }
     
         Asset::create($request->all());
 
@@ -51,7 +64,15 @@ class AssetController extends Controller
         // Jika ditemukan
         return response()->json([
             'status' => 'success',
-            'data' => $asset
+            'data' => [
+                'nama_barang' => $asset->nama_barang,
+                'kode_barcode' => $asset->kode_barcode,
+                'lokasi' => $asset->lokasi,
+                'kondisi' => $asset->kondisi,
+                'foto' => $asset->foto
+                    ?asset('storage/assets/' . $asset->foto)
+                    : null
+            ]
         ]);
     }
 }

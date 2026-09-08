@@ -10,6 +10,7 @@ class Asset extends Model
         'nama_barang',
         'kode_barcode',
         'lokasi',
-        'kondisi'
+        'kondisi',
+        'foto'
     ];
 }

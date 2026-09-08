@@ -55,6 +55,8 @@ function showResult(data, type = "success") {
         el.classList.add("success");
 
         el.innerHTML = `
+            ${data.foto ? `<img src="${data.foto}" class="scan-img mb-2"></img>`:''}
+
             <div class="result-item">
                 <div class="result-label">Kode Barcode</div>
                 <div class="result-value">${data.kode_barcode}</div>

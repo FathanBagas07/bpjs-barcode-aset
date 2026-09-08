@@ -22,7 +22,7 @@
             <!-- FORM -->
             <div class="card-body">
 
-                <form action="/assets" method="POST">
+                <form action="/assets" method="POST" enctype="multipart/from-data">
                     @csrf
 
                     <div class="mb-2">
@@ -39,6 +39,10 @@
 
                     <div class="mb-2">
                         <input type="text" name="kondisi" class="form-control" placeholder="Kondisi">
+                    </div>
+
+                    <div class="mb-2">
+                        <input type="file" name="foto" class="form-control">
                     </div>
 
                     <button class="btn btn-primary">Tambah Aset</button>
