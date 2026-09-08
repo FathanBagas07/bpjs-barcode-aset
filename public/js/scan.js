@@ -110,7 +110,8 @@ function translateScannerUI() {
         "NotFoundError: Requested device not found" : "Perangkat yang diminta tidak ditemukan",
         "Choose Image - No image choosen" : "Pilih Gambar - Tidak ada gambar yang dipilih",
         "Or drop an image to scan" : "Atau jatuhkan gambar untuk dipindai",
-        "Scan using camera directly" : "Pindai langsung lewat kamera"
+        "Scan using camera directly" : "Pindai langsung lewat kamera",
+        "D: No MultiFormat Readers were able to detect the code." : "Tidak dapat mendeteksi QR, pastikan gambar sudah benar"
     };
 
     const walker = document.createTreeWalker(reader, NodeFilter.SHOW_TEXT);
