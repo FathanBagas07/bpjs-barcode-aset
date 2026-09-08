@@ -32,7 +32,7 @@ class AssetController extends Controller
             $data['foto'] = $filename;
         }
     
-        Asset::create($request->all());
+        Asset::create($data);
 
         return redirect()->back()->with('success','Aset berhasil ditambahkan');
     }

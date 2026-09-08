@@ -17,12 +17,22 @@
         </div>
     @endif
 
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="card asset-form-card mb-4">
             <!-- FORM -->
             <div class="card-body">
 
-                <form action="/assets" method="POST" enctype="multipart/from-data">
+                <form action="/assets" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-2">
