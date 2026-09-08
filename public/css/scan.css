@@ -74,11 +74,13 @@
 
 .scan-img {
     width: 100%;
-    max-width: 200px;
+    max-width: clamp(280px, 42vw, 520px);
+    max-height: 60vh;
+    height: auto;
     border-radius: 10px;
     display: block;
     margin: 0 auto 10px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Placeholder */
@@ -122,5 +124,10 @@
 @media (max-width: 480px) {
     .scan-card {
         padding: 18px;
+    }
+
+    .scan-img {
+        max-width: 100%;
+        max-height: 45vh;
     }
 }
