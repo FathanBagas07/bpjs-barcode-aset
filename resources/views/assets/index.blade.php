@@ -65,42 +65,44 @@
         </div>
 
         <!-- TABLE -->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th class="text-center">No</th>
-                    <th class="text-center">Nama</th>
-                    <th class="text-center">QR Code</th>
-                    <th class="text-center">Lokasi</th>
-                    <th class="text-center">Kondisi</th>
-                    <th class="text-center">Aksi</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach($assets as $index => $asset)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td class="text-center align-middle">{{ $index + 1 }}</td>
-                        <td class="align-middle">{{ $asset->nama_barang }}</td>
-                        <td class="text-center align-middle">
-                            <div class="d-flex justify-content-center">
-                                {!! QrCode::size(100)->generate($asset->kode_barcode) !!}
-                            </div>
-                        </td>
-                        <td class="align-middle">{{ $asset->lokasi }}</td>
-                        <td class="text-center align-middle">{{ $asset->kondisi }}</td>
-                        <td class="text-center align-middle">
-                            <form action="/assets/{{ $asset->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-sm">Hapus</button>
-                            </form>
-                        </td>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Nama</th>
+                        <th class="text-center">QR Code</th>
+                        <th class="text-center">Lokasi</th>
+                        <th class="text-center">Kondisi</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
-                @endforeach
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
+                    @foreach($assets as $index => $asset)
+                        <tr>
+                            <td class="text-center align-middle">{{ $index + 1 }}</td>
+                            <td class="align-middle">{{ $asset->nama_barang }}</td>
+                            <td class="text-center align-middle">
+                                <div class="d-flex justify-content-center">
+                                    {!! QrCode::size(100)->generate($asset->kode_barcode) !!}
+                                </div>
+                            </td>
+                            <td class="align-middle">{{ $asset->lokasi }}</td>
+                            <td class="text-center align-middle">{{ $asset->kondisi }}</td>
+                            <td class="text-center align-middle">
+                                <form action="/assets/{{ $asset->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+
+            </table>
+        </div>
     </div>
 
 </x-app-layout>
